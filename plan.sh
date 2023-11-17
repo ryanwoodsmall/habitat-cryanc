@@ -16,9 +16,9 @@ DO_CHECK=1
 
 do_build() {
   cd "${SRC_PATH}" || exit 1
-  local CC="$(hab pkg path core/musl)/bin/musl-gcc"
+  local CC="$(pkg_path_for core/musl)/bin/musl-gcc"
   export CC
-  "${CC}" -Os -g0 -Wl,-s -Wl,-static carl.c -o carl -static
+  "${CC}" -Os -g0 -Wl,-s -Wl,-static carl.c -o carl -static -s
   unset CC
 }
 
